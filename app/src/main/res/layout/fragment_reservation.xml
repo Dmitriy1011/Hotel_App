@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/something_went_wrong_try_again"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <ru.testapp.hotel_test.util.RatingView
+            android:id="@+id/reservationRatingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/resHotelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/medium_500"
+            android:text="@string/hotel_name_in_reservation"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/reservationRatingView" />
+
+        <TextView
+            android:id="@+id/resHotelAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/medium_500"
+            android:text="@string/address_of_hotel_reservation"
+            android:textColor="#0D72FF"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/resHotelName" />
+
+        <TextView
+            android:id="@+id/departureFromTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/departure_from_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/resHotelAddress" />
+
+        <TextView
+            android:id="@+id/departureFromDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/departure_from_descr"
+            app:layout_constraintBottom_toBottomOf="@id/departureFromTitle"
+            app:layout_constraintStart_toEndOf="@id/departureFromTitle" />
+
+        <TextView
+            android:id="@+id/arrivalToTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/arrival_to_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/departureFromTitle" />
+
+        <TextView
+            android:id="@+id/arrivalToDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/arrival_to_descr"
+            app:layout_constraintBottom_toBottomOf="@id/arrivalToTitle"
+            app:layout_constraintStart_toStartOf="@id/departureFromDescr" />
+
+        <TextView
+            android:id="@+id/dateTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/date_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/arrivalToTitle" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/datesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/dateTitle"
+            app:layout_constraintStart_toStartOf="@id/arrivalToDescr">
+
+            <TextView
+                android:id="@+id/dateStart"
+                style="@style/ReservationDescrs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/date_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/dash"
+                app:layout_constraintBottom_toBottomOf="@id/dateStart"
+                app:layout_constraintStart_toEndOf="@id/dateStart"
+                app:layout_constraintTop_toTopOf="@id/dateStart" />
+
+            <TextView
+                android:id="@+id/dateFinish"
+                style="@style/ReservationDescrs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/date_finish"
+                app:layout_constraintBottom_toBottomOf="@id/dateStart"
+                app:layout_constraintStart_toEndOf="@id/dash" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/nightsAmountTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nights_amount_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/dateTitle" />
+
+        <TextView
+            android:id="@+id/nightsAmountDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nights_amount_descr"
+            app:layout_constraintBottom_toBottomOf="@id/nightsAmountTitle"
+            app:layout_constraintStart_toStartOf="@id/datesLayout" />
+
+        <TextView
+            android:id="@+id/hotelTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hotel_name_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/nightsAmountDescr" />
+
+        <TextView
+            android:id="@+id/hotelDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hotel_name_descr"
+            app:layout_constraintBottom_toBottomOf="@id/hotelTitle"
+            app:layout_constraintStart_toStartOf="@id/nightsAmountDescr" />
+
+        <TextView
+            android:id="@+id/hotelRoomTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hotel_room_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/hotelTitle" />
+
+        <TextView
+            android:id="@+id/hotelRoomDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hotel_room_descr"
+            app:layout_constraintBottom_toBottomOf="@id/hotelRoomTitle"
+            app:layout_constraintStart_toStartOf="@id/hotelDescr" />
+
+        <TextView
+            android:id="@+id/nutritionTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nutrition_title"
+            app:layout_constraintStart_toStartOf="@id/reservationRatingView"
+            app:layout_constraintTop_toBottomOf="@id/hotelRoomTitle" />
+
+        <TextView
+            android:id="@+id/nutritionDescr"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/nutrition_descr"
+            app:layout_constraintBottom_toBottomOf="@id/nutritionTitle"
+            app:layout_constraintStart_toStartOf="@id/hotelRoomDescr" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/costumerInfoBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/nutritionTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/costumerInfoTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/medium_500"
+                    android:text="@string/costumer_info_title_text"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@id/phoneNumberField"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneNumberField"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/phone_number_hint"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/costumerInfoTitle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextFieldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailField"
+                    style="@style/TextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#F6F6F9"
+                    android:hint="@string/email_field_hint"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/phoneNumberField">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextFieldStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textAboutData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/regular_400"
+                    android:text="@string/costumer_info_text_about_your_data"
+                    android:textColor="#828796"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/emailField" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/touristsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/costumerInfoBlock"
+            tools:listitem="@layout/view_tourist" />
+
+        <TextView
+            android:id="@+id/addTouristTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/medium_500"
+            android:text="@string/add_tourist_title"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/touristsList" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/addTouristButtonView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#0D72FF"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/addTouristTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/addTouristTitle">
+
+            <ImageView
+                android:id="@+id/addTouristButtonImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_add_24" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/priceOfTourTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/price_of_tour_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addTouristTitle" />
+
+        <TextView
+            android:id="@+id/priceTourText"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/price_tour_text"
+            app:layout_constraintBottom_toBottomOf="@id/priceOfTourTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/fuelChargeTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fuel_charge_title"
+            app:layout_constraintStart_toStartOf="@id/priceOfTourTitle"
+            app:layout_constraintTop_toBottomOf="@id/priceOfTourTitle" />
+
+        <TextView
+            android:id="@+id/fuelChargeText"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fuel_charge_text"
+            app:layout_constraintBottom_toBottomOf="@id/fuelChargeTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/serviceChargeTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/service_charge_title"
+            app:layout_constraintStart_toStartOf="@id/fuelChargeTitle"
+            app:layout_constraintTop_toBottomOf="@id/fuelChargeTitle" />
+
+        <TextView
+            android:id="@+id/serviceChargeText"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/service_charge_text"
+            app:layout_constraintBottom_toBottomOf="@id/serviceChargeTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/toPaymentTitle"
+            style="@style/ReservationTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/to_payment_title"
+            app:layout_constraintStart_toStartOf="@id/serviceChargeTitle"
+            app:layout_constraintTop_toBottomOf="@id/serviceChargeTitle" />
+
+        <TextView
+            android:id="@+id/toPaymentText"
+            style="@style/ReservationDescrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/to_payment_text"
+            android:textColor="#0D72FF"
+            app:layout_constraintBottom_toBottomOf="@id/toPaymentTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toPaymentButton"
+            style="@style/NavButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/to_payment_button_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toPaymentTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

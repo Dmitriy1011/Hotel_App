@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/hotelFragment">
+
+    <fragment
+        android:id="@+id/hotelRoomFragment"
+        android:name="ru.testapp.hotel_test.activity.HotelRoomFragment"
+        android:label="@string/hotel_room_name" >
+        <action
+            android:id="@+id/action_hotelRoomFragment_to_reservationFragment"
+            app:destination="@id/reservationFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_hotelRoomFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="ru.testapp.hotel_test.activity.HotelFragment"
+        android:label="@string/hotel_fragment_name" >
+        <action
+            android:id="@+id/action_hotelFragment_to_hotelRoomFragment"
+            app:destination="@id/hotelRoomFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationFragment"
+        android:name="ru.testapp.hotel_test.activity.ReservationFragment"
+        android:label="@string/reservation_fragment_name" >
+        <action
+            android:id="@+id/action_reservationFragment_to_paidFragment"
+            app:destination="@id/paidFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_reservationFragment_to_hotelRoomFragment"
+            app:destination="@id/hotelRoomFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/paidFragment"
+        android:name="ru.testapp.hotel_test.activity.PaidFragment"
+        android:label="@string/paid_fragment_name" >
+        <action
+            android:id="@+id/action_paidFragment_to_reservationFragment"
+            app:destination="@id/reservationFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_paidFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+</navigation>

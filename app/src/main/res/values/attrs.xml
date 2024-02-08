@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RatingView">
+        <attr name="score" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ToolBar">
+        <attr name="backArrow" format="reference"/>
+        <attr name="toolBarTitle" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="FacilitiesButtonView">
+        <attr name="firstText" format="string"/>
+        <attr name="secondText" format="string"/>
+        <attr name="emoji" format="reference"/>
+    </declare-styleable>
+</resources>
